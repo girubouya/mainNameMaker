@@ -1,7 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:name_maker/firebaseAuth/auth.dart';
+import 'package:name_maker/firebase/auth.dart';
 import 'package:name_maker/screen/loginPage.dart';
+import 'package:name_maker/screen/wordAddPage.dart';
 
 class homePage extends StatelessWidget {
   const homePage({super.key});
@@ -81,7 +82,12 @@ class homePage extends StatelessWidget {
           //リセットボタン
           ElevatedButton(onPressed: () {}, child: const Text('リセット')),
           //名前追加ボタン
-          ElevatedButton(onPressed: () {}, child: const Text('名前追加')),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => WordAddPage()));
+              },
+              child: const Text('名前追加')),
         ],
       ),
     );
