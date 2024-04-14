@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "193041067975",
+    "project_id": "namemaker-f51c5",
+    "storage_bucket": "namemaker-f51c5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:193041067975:android:f16aa7fc17b129c27773e2",
+        "android_client_info": {
+          "package_name": "com.example.name_maker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbHEyPalHyAnu6yyR43gxFAyiw1SMYqwQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:193041067975:android:67ba716163a4d0e17773e2",
+        "android_client_info": {
+          "package_name": "com.example.namemaker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbHEyPalHyAnu6yyR43gxFAyiw1SMYqwQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
