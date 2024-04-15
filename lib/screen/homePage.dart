@@ -1,12 +1,21 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:name_maker/firebase/auth.dart';
+import 'package:name_maker/firebase/word.dart';
 import 'package:name_maker/screen/loginPage.dart';
 import 'package:name_maker/screen/wordAddPage.dart';
+import 'dart:math' as math;
 
-class homePage extends StatelessWidget {
+class homePage extends StatefulWidget {
   const homePage({super.key});
 
+  @override
+  State<homePage> createState() => _homePageState();
+}
+
+class _homePageState extends State<homePage> {
+  String leftName = "";
+  String rightName = "";
   @override
   Widget build(BuildContext context) {
     final bool loginCheck;
@@ -54,11 +63,23 @@ class homePage extends StatelessWidget {
                   children: [
                     Container(
                       decoration: BoxDecoration(border: Border.all()),
-                      child: const Text(
-                        "word",
+                      child: Text(
+                        leftName,
                       ),
                     ),
-                    ElevatedButton(onPressed: () {}, child: const Text("出力")),
+                    ElevatedButton(
+                        onPressed: () async {
+                          var result = await Word.firestoreWordOut("左");
+                          if (result is List<Map<String, dynamic>>) {
+                            final wordMax = result.length;
+                            var random = math.Random();
+                            setState(() {
+                              leftName =
+                                  result[random.nextInt(wordMax)]["name"];
+                            });
+                          }
+                        },
+                        child: const Text("出力")),
                   ],
                 ),
                 //右の名前の出力場所とボタン
@@ -66,11 +87,23 @@ class homePage extends StatelessWidget {
                   children: [
                     Container(
                       decoration: BoxDecoration(border: Border.all()),
-                      child: const Text(
-                        "word",
+                      child: Text(
+                        rightName,
                       ),
                     ),
-                    ElevatedButton(onPressed: () {}, child: const Text("出力")),
+                    ElevatedButton(
+                        onPressed: () async {
+                          var result = await Word.firestoreWordOut("右");
+                          if (result is List<Map<String, dynamic>>) {
+                            final wordMax = result.length;
+                            var random = math.Random();
+                            setState(() {
+                              rightName =
+                                  result[random.nextInt(wordMax)]["name"];
+                            });
+                          }
+                        },
+                        child: const Text("出力")),
                   ],
                 ),
               ],

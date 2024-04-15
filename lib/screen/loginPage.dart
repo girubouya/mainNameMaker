@@ -11,7 +11,6 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     TextEditingController emailController = TextEditingController();
     TextEditingController passwordController = TextEditingController();
-    print(Auth.currentUser);
 
     return Scaffold(
       appBar: AppBar(

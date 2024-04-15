@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:name_maker/firebase/wordAdd.dart';
+import 'package:name_maker/firebase/word.dart';
 import 'package:name_maker/model/word_model.dart';
 
 class WordAddPage extends StatefulWidget {
@@ -73,7 +73,7 @@ class _WordAddPageState extends State<WordAddPage> {
                         leftright: selectValue,
                         createdAt: Timestamp.now(),
                         updatedAt: Timestamp.now());
-                    final result = await WordAdd.firestoreWordAdd(word);
+                    final result = await Word.firestoreWordAdd(word);
                     if (result == true) {
                       Navigator.pop(context);
                     }
