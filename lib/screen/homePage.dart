@@ -1,8 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:name_maker/firebase/auth.dart';
 import 'package:name_maker/firebase/word.dart';
 import 'package:name_maker/screen/loginPage.dart';
+import 'package:name_maker/screen/profilePage.dart';
 import 'package:name_maker/screen/wordAddPage.dart';
 import 'dart:math' as math;
 
@@ -30,7 +32,13 @@ class _homePageState extends State<homePage> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(loginCheck ? "home(${Auth.userData!.name})" : "home(匿名)"),
+            GestureDetector(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ProfilePage()));
+                },
+                child: Text(
+                    loginCheck ? "home(${Auth.userData!.name})" : "home(匿名)")),
             ElevatedButton(
                 onPressed: () async {
                   if (loginCheck) {
